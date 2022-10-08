@@ -3,21 +3,15 @@ import Product from '../Product/Product';
 import {addToDb, getShoppingCart} from '../../utilities/fakedb'
 import Cart from '../Cart/Cart'
 import './Shop.css'
+import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
-    const [products,setProducts]=useState([])
+    const products = useLoaderData()
     const [cart,setCart]=useState([])
-    useEffect(()=>{
-        console.log('before fetch')
-        fetch('products.json')
-        .then(res=>res.json())
-        .then(data=>{
-            console.log('product loaded');
-            setProducts(data)})
-    },[])
+   
 
     useEffect(()=>{
-        console.log('local strg first line',products)
+        
         const storedCart = getShoppingCart();
         const savedCart  =[];
         for(const id in storedCart){
@@ -27,7 +21,6 @@ const Shop = () => {
                 addededProduct.quantity = quantity;
                 savedCart.push(addededProduct)
 
-                console.log(addededProduct)
             }
         }
         setCart(savedCart);
