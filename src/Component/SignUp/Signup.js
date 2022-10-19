@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 
 const Signup = () => {
+  const [error, setError] = useState(null);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirm = form.confirm.value;
+    if (password.length < 6) {
+      setError("Password must be 6 characters or more");
+      return;
+    }
+    if (password !== confirm) {
+      setError("Your Password didnont match");
+      return;
+    }
+  };
   return (
     <div className="form-container">
       <h2 className="from-title">Sign Up</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="from-control">
           <label htmlFor="email">Email</label>
           <input type="email" name="email" required />
@@ -23,6 +39,7 @@ const Signup = () => {
       </form>
       <p>
         Already Have an Account? <Link to="/login">Log In</Link>{" "}
+        <p className="text-error">{error}</p>
       </p>
     </div>
   );
