@@ -3,8 +3,10 @@ import "./App.css";
 import About from "./Component/About/About";
 import Inventory from "./Component/Inventory/Inventory";
 import Main from "./Component/layouts/Main";
+import Login from "./Component/Login/Login";
 import Orders from "./Component/Orders/Orders";
 import Shop from "./Component/Shop/Shop";
+import Signup from "./Component/SignUp/Signup";
 import { productAndCartLoader } from "./Loaders/productAndCartLoader";
 
 function App() {
@@ -32,6 +34,14 @@ function App() {
         {
           path: "about",
           element: <About></About>,
+        },
+        {
+          path: "/login",
+          element: <Login></Login>,
+        },
+        {
+          path: "/signup",
+          element: <Signup></Signup>,
         },
       ],
     },
