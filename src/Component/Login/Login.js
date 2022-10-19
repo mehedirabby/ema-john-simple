@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/userContext";
 import "./Login.css";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .error((error) => {
+        console.error(error);
+      });
+  };
+
   return (
-    <div className="form-container">
+    <div onSubmit={handleSubmit} className="form-container">
       <h2 className="from-title">Login</h2>
       <form>
         <div className="from-control">
