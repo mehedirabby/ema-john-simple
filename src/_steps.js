@@ -6,5 +6,13 @@
     4.npm i firbase
     5.get firebase config in your firebase firebase.config.js file
     6.export default app from firebase.config.js;
-    7.
+    
+*/
+
+/*
+    1.create userContext ( Auth context ): userContext ---> component name userContext provides AuthContext
+    2.create AuthContext
+    3.set AuthContext.Provider
+    4.Make sure you set the children
+    5.
 */
