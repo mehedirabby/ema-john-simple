@@ -6,10 +6,32 @@
     border: 1px solid #95A0A7;
     border-radius: 8px;
 }
-.form-title{
+.from-title{
     font-weight: 400;
     font-size: 34px;
     line-height: 42px;
     letter-spacing: 0.025em;
     color: #2A414f;
+    text-align: center;
+}
+.from-control{
+    margin-left: 40px;
+}
+.from-control label{
+    display: block;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    color: #2A414F;                
+    margin-bottom: 10PX;
+}
+.from-control input{
+    width: 415px;
+    height: 55px;
+    border: 1px solid #95A0A7;
+    border-radius: 5PX;
+    font-size: 1.5em;
+    padding-left: 7px;
+   
 }
