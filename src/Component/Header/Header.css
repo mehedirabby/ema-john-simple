@@ -17,3 +17,11 @@
 .header a:hover{
     color: bisque;
 }
+.email{
+    color: aliceblue;
+}
+.btn-logout{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 8px;
+}

@@ -22,6 +22,11 @@ function App() {
           },
           element: <Shop></Shop>,
         },
+        // remove this for home design
+        {
+          path: "/",
+          element: <Shop></Shop>,
+        },
         {
           path: "order",
           loader: productAndCartLoader,
