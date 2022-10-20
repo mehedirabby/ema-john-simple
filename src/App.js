@@ -18,7 +18,7 @@ function App() {
       element: <Main></Main>,
       children: [
         {
-          path: "/shop",
+          path: "/",
           loader: async () => {
             return fetch("products.json");
           },
@@ -36,7 +36,11 @@ function App() {
         },
         {
           path: "inventory",
-          element: <Inventory></Inventory>,
+          element: (
+            <PrivateRoute>
+              <Inventory></Inventory>
+            </PrivateRoute>
+          ),
         },
         {
           path: "about",
