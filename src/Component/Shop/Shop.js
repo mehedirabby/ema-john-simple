@@ -20,6 +20,7 @@ const Shop = () => {
 
   useEffect(() => {
     const url = `http://localhost:5000/products?page=${page}&size=${size}`;
+    console.log(page, size);
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -81,7 +82,7 @@ const Shop = () => {
             onClick={() => setPage(number)}
             className={page === number && "selected"}
           >
-            {number}
+            {number + 1}
           </button>
         ))}
         <select onChange={(event) => setSize(event.target.value)}>
