@@ -10,7 +10,9 @@ import "./Shop.css";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Shop = () => {
-  const { products, count } = useLoaderData();
+  // const { products, count } = useLoaderData();
+  const [products, setProducts] = useState([]);
+  const [cout, setCount] = useState(0);
   const [cart, setCart] = useState([]);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
@@ -60,10 +62,24 @@ const Shop = () => {
         </Cart>
       </div>
       <div className="pagination">
-        <p>currently selected page: {page}</p>
+        <p>
+          currently selected page: {page} and size: {size}
+        </p>
         {[...Array(pages).keys()].map((number) => (
-          <button key={number}>{number}</button>
+          <button
+            key={number}
+            onClick={() => setPage(number)}
+            className={page === number && "selected"}
+          >
+            {number}
+          </button>
         ))}
+        <select onChange={(event) => setSize(event.target.value)}>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
       </div>
     </div>
   );
