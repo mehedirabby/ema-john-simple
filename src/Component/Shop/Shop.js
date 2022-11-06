@@ -12,11 +12,21 @@ import { Link, useLoaderData } from "react-router-dom";
 const Shop = () => {
   // const { products, count } = useLoaderData();
   const [products, setProducts] = useState([]);
-  const [cout, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [cart, setCart] = useState([]);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
   const pages = Math.ceil(count / size);
+
+  useEffect(() => {
+    const url = `http://localhost:5000/products?page=${page}&size=${size}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setCount(data.count);
+        setProducts(data.products);
+      });
+  }, [page, size]);
 
   const clearCart = () => {
     setCart([]);
