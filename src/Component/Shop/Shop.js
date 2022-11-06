@@ -10,8 +10,9 @@ import "./Shop.css";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Shop = () => {
-  const products = useLoaderData();
+  const { products, count } = useLoaderData();
   const [cart, setCart] = useState([]);
+  const perPage = 10;
 
   const clearCart = () => {
     setCart([]);
