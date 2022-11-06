@@ -30,7 +30,7 @@ const Orders = () => {
         ))}
         {cart.length === 0 && (
           <h2>
-            No items for review .please <Link to="/shop">Shop</Link>
+            No items for review .please <Link to="/">Shop</Link>
           </h2>
         )}
       </div>
