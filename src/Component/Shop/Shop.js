@@ -12,7 +12,9 @@ import { Link, useLoaderData } from "react-router-dom";
 const Shop = () => {
   const { products, count } = useLoaderData();
   const [cart, setCart] = useState([]);
-  const perPage = 10;
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
+  const pages = Math.ceil(count / size);
 
   const clearCart = () => {
     setCart([]);
@@ -56,6 +58,12 @@ const Shop = () => {
             <button>Review Order</button>
           </Link>
         </Cart>
+      </div>
+      <div className="pagination">
+        <p>currently selected page: {page}</p>
+        {[...Array(pages).keys()].map((number) => (
+          <button key={number}>{number}</button>
+        ))}
       </div>
     </div>
   );
